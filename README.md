@@ -1,7 +1,7 @@
 # Employee management interface
 
-![alt text](https://raw.githubusercontent.com/VitalyGryaznov/employee_management_interface/blob/master/Screenshot_table.png)
-![alt text](https://raw.githubusercontent.com/VitalyGryaznov/employee_management_interface/blob/master/Screenshot_form.png)
+![alt text](https://github.com/VitalyGryaznov/employee_management_interface/blob/master/Screenshot_table.png)
+![alt text](https://github.com/VitalyGryaznov/employee_management_interface/blob/master/Screenshot_form.png)
 
 ## Available Scripts
 
