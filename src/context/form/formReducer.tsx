@@ -1,15 +1,27 @@
-import { CLOSE_FORM, SHOW_EDIT_FORM, SHOW_NEW_CUSTOMER_FORM, FormStateType } from '../types'
+import { FormActionType, FormStateType } from "../types";
 
-const handlers: any = {
-  [SHOW_EDIT_FORM]: (state: FormStateType, {payload}: any) => ({...state, newForm: false,
-    userId: payload, visible: true}),
-  [SHOW_NEW_CUSTOMER_FORM]: (state: FormStateType) => ({...state, newForm: true,
-    userId: null, visible: true}),
-  [CLOSE_FORM]: (state: FormStateType) => ({...state, visible: false}),
-  DEFAULT: (state: FormStateType) => state
+interface IReducer {
+  type: FormActionType;
+  payload?: any;
 }
 
-export const FormReducer = (state: any, action: any) => {
-  const handle = handlers[action.type] || handlers.DEFAULT
-  return handle(state, action)
-}
+export const FormReducer: React.Reducer<FormStateType, IReducer> = (
+  state,
+  action
+) => {
+  switch (action.type) {
+    case FormActionType.SHOW_EDIT_FORM:
+      return {
+        ...state,
+        newForm: false,
+        userId: action.payload,
+        visible: true,
+      };
+    case FormActionType.SHOW_NEW_CUSTOMER_FORM:
+      return { ...state, newForm: true, userId: null, visible: true };
+    case FormActionType.CLOSE_FORM:
+      return { ...state, visible: false };
+    default:
+      return state;
+  }
+};

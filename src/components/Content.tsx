@@ -21,11 +21,6 @@ const Content = () => {
     dataContext.removeUser(key.id);
   };
 
-  const onEdit = (key: any, e: any) => {
-    e.preventDefault();
-    formContext.openEditForm(key.id as number);
-  };
-
   const creatUserObjectFromFormData = (payload: any) => {
     return {
       id: payload.id,
@@ -46,6 +41,11 @@ const Content = () => {
           }
         : null) as PublisherType,
     } as UserType;
+  };
+
+  const onEdit = (key: any, e: any) => {
+    e.preventDefault();
+    formContext.openEditForm(key.id as number);
   };
 
   const onCreate = (payload: any) => {

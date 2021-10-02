@@ -1,14 +1,27 @@
-import { ADD_USER, FETCH_USERS, REMOVE_USER, UPDATE_USER } from '../types'
+import { DataActionType, UserType } from "../types";
 
-const handlers: any = {
-  [ADD_USER]: (state: any, {payload}: any) => ([...state, payload]),
-  [FETCH_USERS]: (state: any, {payload}: any) => (payload),
-  [REMOVE_USER]: (state: any, {payload}: any) => (state.filter((user: any) => user.id !== payload)),
-  [UPDATE_USER]: (state: any, {payload}: any) => ([...state.filter((user: any) => user.id !== payload.id), payload]),
-  DEFAULT: (state: any) => state
+interface IReducer {
+  type: DataActionType;
+  payload: any;
 }
 
-export const DataReducer = (state: any, action: any) => {
-  const handle = handlers[action.type] || handlers.DEFAULT
-  return handle(state, action)
-}
+export const DataReducer: React.Reducer<Array<UserType>, IReducer> = (
+  state,
+  action
+) => {
+  switch (action.type) {
+    case DataActionType.ADD_USER:
+      return [...state, action.payload];
+    case DataActionType.FETCH_USERS:
+      return action.payload;
+    case DataActionType.REMOVE_USER:
+      return state.filter((user: UserType) => user.id !== action.payload);
+    case DataActionType.UPDATE_USER:
+      return [
+        ...state.filter((user: UserType) => user.id !== action.payload.id),
+        action.payload,
+      ];
+    default:
+      return state;
+  }
+};
