@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Employee management interface
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![alt text](https://raw.githubusercontent.com/VitalyGryaznov/employee_management_interface/main/Screenshot_table.png)
+![alt text](https://raw.githubusercontent.com/VitalyGryaznov/employee_management_interface/main/Screenshot_form.png)
 
 ## Available Scripts
 
