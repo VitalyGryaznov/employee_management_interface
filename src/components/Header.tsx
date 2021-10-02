@@ -1,11 +1,11 @@
-import { Layout } from "antd";
-import "antd/dist/antd.css";
+import React from "react";
+import "./Header.scss";
 
 const Header = () => {
   return (
-    <Layout>
-      <h1>Employee management</h1>
-    </Layout>
+    <div className="header_container">
+      <h1 className="header_title">Employee management</h1>
+    </div>
   );
 };
 

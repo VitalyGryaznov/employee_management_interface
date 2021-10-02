@@ -11,6 +11,7 @@ import {
   OfficeType,
   PublisherType,
 } from "../context/types";
+import "./Content.scss"
 
 const Content = () => {
   const dataContext = useContext(DataContext) as DataContextType;
@@ -117,16 +118,21 @@ const Content = () => {
   ];
 
   return (
-    <div>
-      <Button type="primary" onClick={formContext.openNewCustomerForm}>
+    <div className="content_container">
+      <div className="content_flex">
+        <div className="content_add_button" >
+        <Button type="primary" onClick={formContext.openNewCustomerForm}>
         Add
       </Button>
+        </div>
+     
       <Table
         dataSource={dataContext.state}
         columns={columns}
         rowKey="id"
         bordered
       />
+      </div>
       <ModalDialog onCreate={onCreate} />
     </div>
   );
